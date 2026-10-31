@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #f0fdf4; /* خلفية ناعمة ومريحة جداً ومشرقة */
+  --bg-color: #f0fdf4; /* خلفية ناعمة ومريحة ومشرقة */
   --card-bg: #ffffff;
   --text-primary: #0f172a;
   --text-secondary: #475569;
@@ -40,7 +40,7 @@ body {
 .avatar-wrapper img {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  border-radius: 12px; /* مربع بزوايا ناعمة وأنيقة */
   object-fit: cover;
   border: 4px solid var(--accent-color);
   margin-bottom: 15px;
