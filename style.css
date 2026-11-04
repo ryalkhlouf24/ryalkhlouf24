@@ -1,161 +1,487 @@
+/* ---------- Colors: change them here to restyle everything ---------- */
 :root {
-  --bg-color: #f0fdf4; /* خلفية ناعمة ومريحة ومشرقة */
-  --card-bg: #ffffff;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --accent-color: #0284c7; /* أزرق سماوي جذاب */
-  --accent-hover: #0369a1;
-  --border-color: #cbd5e1;
+  --ink: #14110f;
+  --yellow: #ffe45c;
+  --pink: #ff5ca8;
+  --blue: #4361ff;
+  --mint: #3de0b0;
+  --orange: #ff8a3d;
+  --white: #ffffff;
 }
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-primary);
-  line-height: 1.6;
-  padding: 30px 15px;
+  font-family: "Space Grotesk", "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  background-color: var(--yellow);
+  /* polka-dot background */
+  background-image: radial-gradient(rgba(20, 17, 15, 0.16) 2px, transparent 2px);
+  background-size: 24px 24px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 20px;
+  overflow-x: hidden;
 }
 
 .container {
-  max-width: 850px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
-.profile-header {
-  text-align: center;
-  background: var(--card-bg);
-  padding: 35px 20px;
-  border-radius: 20px;
-  border: 2px solid #bae6fd;
-  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.1);
-  margin-bottom: 25px;
-}
-
-.avatar-wrapper img {
-  width: 150px;
-  height: 150px;
-  border-radius: 12px; /* مربع بزوايا ناعمة وأنيقة */
-  object-fit: cover;
-  border: 4px solid var(--accent-color);
-  margin-bottom: 15px;
-  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
-}
-
-.profile-header h1 {
-  font-size: 1.9rem;
-  margin-bottom: 6px;
-  color: #0369a1;
-  font-weight: 700;
-}
-
-.university {
-  color: #0284c7;
-  font-weight: 600;
-  margin-bottom: 16px;
-  font-size: 1.05rem;
-}
-
-.badge-group {
+/* ---------- Menu ---------- */
+nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 12px;
+}
+
+nav a {
+  font-family: "Bagel Fat One", "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+  background-color: var(--white);
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  padding: 6px 24px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.15s;
+}
+
+nav a:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+nav a:hover {
+  transform: rotate(-3deg) scale(1.06);
+}
+
+nav a.active {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+/* ---------- Scrolling ticker (the moving moment) ---------- */
+.ticker {
+  overflow: hidden;
+  background-color: var(--ink);
+  color: var(--yellow);
+  font-family: "Bagel Fat One", sans-serif;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  padding: 10px 0;
+  margin: 28px -30px;
+  transform: rotate(-1.5deg);
+}
+
+.ticker-track {
+  display: inline-block;
+  animation: scroll 22s linear infinite;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 44px;
+  align-items: center;
+  margin: 40px 0 56px;
+}
+
+.polaroid {
+  position: relative;
+  background-color: var(--white);
+  border: 4px solid var(--ink);
+  padding: 14px 14px 12px;
+  box-shadow: 8px 8px 0 var(--ink);
+  transform: rotate(-4deg);
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;               /* crops the photo without stretching it */
+  border: 3px solid var(--ink);
+}
+
+.polaroid figcaption {
+  font-family: "Bagel Fat One", sans-serif;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.tape {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 110px;
+  height: 32px;
+  background-color: rgba(255, 92, 168, 0.85);
+  border: 2px dashed var(--ink);
+  transform: translateX(-50%) rotate(3deg);
+}
+
+.badge {
+  position: absolute;
+  right: -28px;
+  bottom: 30px;
+  width: 92px;
+  height: 92px;
+  font-family: "Bagel Fat One", sans-serif;
+  font-size: 1.2rem;
+  color: var(--ink);
+  background-color: var(--orange);
+  border: 4px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(12deg);
+  cursor: pointer;
+}
+
+.badge.spin {
+  animation: spin 0.8s ease-in-out;
+}
+
+@keyframes spin {
+  to { transform: rotate(372deg) scale(1.15); }
+}
+
+h1 {
+  font-family: "Bagel Fat One", "Segoe UI", sans-serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.w {
+  display: inline-block;
+  padding: 0 14px;
+  margin: 4px 6px 4px 0;
+  border: 4px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.w1 { background-color: var(--pink); transform: rotate(-3deg); }
+.w2 { background-color: var(--mint); transform: rotate(2deg); }
+.w3 { background-color: var(--blue); color: var(--white); transform: rotate(-2deg); }
+.w4 { background-color: var(--white); transform: rotate(3deg); }
+
+.university {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 14px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 18px;
 }
 
-.badge {
-  background: #e0f2fe;
-  color: #0369a1;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  border: 1px solid #bae6fd;
-  font-weight: 600;
+.tag {
+  font-weight: 700;
+  background-color: var(--white);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  padding: 2px 16px;
 }
 
-.email-link {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-}
+.tag:nth-child(1) { background-color: var(--mint); }
+.tag:nth-child(2) { background-color: var(--pink); }
+.tag:nth-child(3) { background-color: var(--white); }
 
-.email-link a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.email-link a:hover {
-  text-decoration: underline;
-}
-
-.grid-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
+/* ---------- Cards ---------- */
 .card {
-  background: var(--card-bg);
-  padding: 25px;
+  background-color: var(--white);
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  padding: 34px 28px 28px;
+  margin-bottom: 52px;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+h2 {
+  display: inline-block;
+  font-family: "Bagel Fat One", sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  background-color: var(--pink);
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  padding: 2px 18px;
+  margin: -58px 0 20px -4px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+
+/* ---------- Links ---------- */
+a {
+  color: var(--blue);
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  background-color: var(--yellow);
+}
+
+nav a:hover {
+  background-color: var(--white);
+}
+
+nav a.active:hover {
+  background-color: var(--blue);
+}
+
+.mail {
+  display: inline-block;
+  font-family: "Bagel Fat One", sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+  background-color: var(--yellow);
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  padding: 4px 22px;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.mail:hover {
+  background-color: var(--mint);
+}
+
+/* ---------- Soft skills as stickers ---------- */
+.stickers {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.stickers li {
+  font-family: "Bagel Fat One", sans-serif;
+  font-size: 1.15rem;
+  border: 4px solid var(--ink);
   border-radius: 18px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 6px 20px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.15s;
 }
 
-.card h2 {
-  font-size: 1.3rem;
-  color: #0369a1;
-  margin-bottom: 15px;
-  border-bottom: 2px solid #e0f2fe;
-  padding-bottom: 8px;
+.stickers li:nth-child(1) { background-color: var(--mint);   transform: rotate(-3deg); }
+.stickers li:nth-child(2) { background-color: var(--yellow); transform: rotate(2deg); }
+.stickers li:nth-child(3) { background-color: var(--pink);   transform: rotate(-2deg); }
+.stickers li:nth-child(4) { background-color: var(--blue); color: var(--white); transform: rotate(3deg); }
+.stickers li:nth-child(5) { background-color: var(--orange); transform: rotate(-1deg); }
+
+.stickers li:hover {
+  transform: rotate(0deg) scale(1.1);
 }
 
-.skills-list {
-  list-style-position: inside;
-  color: var(--text-primary);
-  padding-left: 5px;
+/* ---------- Loot table ---------- */
+.table-wrap {
+  overflow-x: auto;
+  border: 4px solid var(--ink);
+  border-radius: 14px;
 }
 
-.skills-list li {
-  margin-bottom: 10px;
-}
-
-.skills-table {
+table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
 }
 
-.skills-table th, .skills-table td {
-  padding: 12px 10px;
+th,
+td {
   text-align: left;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 16px;
+  border-bottom: 3px dashed var(--ink);
 }
 
-.skills-table th {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+th {
+  background-color: var(--ink);
+  color: var(--yellow);
+  font-family: "Bagel Fat One", sans-serif;
+  font-weight: 400;
 }
 
-.skills-table a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 600;
+tbody tr:last-child td {
+  border-bottom: none;
 }
 
-.future-paragraph {
-  color: #334155;
+tbody tr:hover {
+  background-color: var(--yellow);
 }
 
+/* ---------- Speech bubble ---------- */
+.bubble {
+  position: relative;
+  background-color: var(--mint);
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  padding: 18px 24px;
+  margin-bottom: 22px;
+}
+
+.bubble p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 56px;
+  bottom: -18px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--mint);
+  border-right: 4px solid var(--ink);
+  border-bottom: 4px solid var(--ink);
+  transform: rotate(45deg);
+}
+
+/* ---------- Contact postcard ---------- */
+.postcard {
+  position: relative;
+}
+
+label {
+  display: block;
+  font-family: "Bagel Fat One", sans-serif;
+  font-size: 1.1rem;
+  margin: 18px 0 6px;
+}
+
+input,
+textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--white);
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background-color: #fffbe0;
+  box-shadow: 5px 5px 0 var(--pink);
+}
+
+button.send {
+  margin-top: 26px;
+  font-family: "Bagel Fat One", sans-serif;
+  font-size: 1.3rem;
+  background-color: var(--pink);
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  padding: 10px 44px;
+  box-shadow: 5px 5px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button.send:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+button.send:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.stamp {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 92px;
+  height: 108px;
+  display: grid;
+  place-items: center;
+  font-size: 2.6rem;
+  background-color: var(--yellow);
+  border: 4px dashed var(--ink);
+  transform: rotate(5deg);
+}
+
+.sent-stamp {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  font-family: "Bagel Fat One", sans-serif;
+  font-size: 4rem;
+  color: #e11d48;
+  border: 8px solid #e11d48;
+  border-radius: 16px;
+  padding: 0 28px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translate(-50%, -50%) rotate(-12deg);
+  pointer-events: none;
+}
+
+.postcard.sent .sent-stamp {
+  display: block;
+}
+
+/* ---------- Footer ---------- */
 footer {
   text-align: center;
-  margin-top: 35px;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+
+/* ---------- Less motion if the visitor prefers it ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track,
+  .badge.spin {
+    animation: none;
+  }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 720px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    justify-items: center;
+  }
+
+  .polaroid {
+    width: 260px;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  .ticker {
+    margin: 28px -24px;
+  }
+
+  .stamp {
+    display: none;
+  }
+
+  .sent-stamp {
+    font-size: 2.4rem;
+  }
 }
