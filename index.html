@@ -3,91 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rinad Yaser - Portfolio</title>
+  <!-- Page title: Student ID + full name -->
+  <title>184192 - Rinad Yaser Ali Al-Khalouf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <div class="container">
-    <!-- Header Section -->
-    <header class="profile-header">
-      <div class="avatar-wrapper">
-        <img src="photo.jpg" alt="Rinad Yaser">
+
+    <!-- Navigation menu -->
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="contact.html">Contact Me</a>
+    </nav>
+
+    <!-- Moving ticker (decoration only) -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>GAME DESIGN ★ UNITY ★ C++ ★ CYBERSECURITY ★ BLENDER ★ PYTHON ★ LEVEL UP ★ GAME DESIGN ★ UNITY ★ C++ ★ CYBERSECURITY ★ BLENDER ★ PYTHON ★ LEVEL UP ★ </span><span>GAME DESIGN ★ UNITY ★ C++ ★ CYBERSECURITY ★ BLENDER ★ PYTHON ★ LEVEL UP ★ GAME DESIGN ★ UNITY ★ C++ ★ CYBERSECURITY ★ BLENDER ★ PYTHON ★ LEVEL UP ★ </span>
       </div>
-      <h1>Rinad Yaser Ali Al-Khalouf</h1>
-      <p class="university">Jordan University of Science and Technology (JUST)</p>
-      <div class="badge-group">
-        <span class="badge">Major: Computer Game Design & Development</span>
-        <span class="badge">Academic Level: Third Year</span>
-        <span class="badge">Student ID: 184192</span>
+    </div>
+
+    <!-- Photo, full name, major, academic level, email -->
+    <header class="hero">
+      <figure class="polaroid" style="margin: 0;">
+        <span class="tape"></span>
+        <img src="photo.jpg" alt="Rinad Yaser Ali Al-Khalouf" class="photo">
+        <figcaption>loading skills... 99%</figcaption>
+        <button class="badge" id="badge" type="button" title="Click me!">LVL 3</button>
+      </figure>
+
+      <div>
+        <h1>
+          <span class="w w1">Rinad</span>
+          <span class="w w2">Yaser</span>
+          <span class="w w3">Ali</span>
+          <span class="w w4">Al-Khalouf</span>
+        </h1>
+        <p class="university">Jordan University of Science and Technology (JUST)</p>
+
+        <div class="tags">
+          <span class="tag">Major: Computer Game Design &amp; Development</span>
+          <span class="tag">Academic Level: Third Year</span>
+          <span class="tag">Student ID: 184192</span>
+        </div>
+
+        <a href="mailto:ryalkhlouf24@cit.just.edu.jo" class="mail">ryalkhlouf24@cit.just.edu.jo</a>
       </div>
-      <p class="email-link">
-        Contact via Email: <a href="mailto:ryalkhlouf24@cit.just.edu.jo">ryalkhlouf24@cit.just.edu.jo</a>
-      </p>
     </header>
 
-    <!-- Content Grid -->
-    <main class="grid-container">
-      
-      <!-- Soft Skills Card -->
-      <section class="card">
-        <h2>Key Soft Skills</h2>
-        <ul class="skills-list">
-          <li>Teamwork & Collaboration</li>
-          <li>Analytical Thinking</li>
-          <li>Problem-Solving</li>
-          <li>Effective Communication</li>
-          <li>Adaptability</li>
-        </ul>
-      </section>
+    <!-- Soft skills -->
+    <section class="card">
+      <h2>Key Soft Skills</h2>
+      <ul class="stickers">
+        <li>Teamwork &amp; Collaboration</li>
+        <li>Analytical Thinking</li>
+        <li>Problem-Solving</li>
+        <li>Effective Communication</li>
+        <li>Adaptability</li>
+      </ul>
+    </section>
 
-      <!-- Favorite Languages & Tools Card -->
-      <section class="card">
-        <h2>Favorite Languages & Tools</h2>
-        <table class="skills-table">
+    <!-- Table: each tool is linked to an external website -->
+    <section class="card">
+      <h2>My Favorite Languages &amp; Tools</h2>
+      <div class="table-wrap">
+        <table>
           <thead>
             <tr>
               <th>Category</th>
               <th>Name</th>
-              <th>Reference</th>
+              <th>Website</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Programming Language</td>
               <td>C++</td>
-              <td><a href="https://isocpp.org" target="_blank">isocpp.org</a></td>
+              <td><a href="https://isocpp.org" target="_blank" rel="noopener">isocpp.org</a></td>
+            </tr>
+            <tr>
+              <td>Programming Language</td>
+              <td>Python</td>
+              <td><a href="https://www.python.org" target="_blank" rel="noopener">python.org</a></td>
             </tr>
             <tr>
               <td>Game Engine</td>
               <td>Unity</td>
-              <td><a href="https://unity.com" target="_blank">unity.com</a></td>
+              <td><a href="https://unity.com" target="_blank" rel="noopener">unity.com</a></td>
             </tr>
             <tr>
               <td>3D Modeling Tool</td>
               <td>Blender</td>
-              <td><a href="https://www.blender.org" target="_blank">blender.org</a></td>
+              <td><a href="https://www.blender.org" target="_blank" rel="noopener">blender.org</a></td>
+            </tr>
+            <tr>
+              <td>Network Analysis Tool</td>
+              <td>Wireshark</td>
+              <td><a href="https://www.wireshark.org" target="_blank" rel="noopener">wireshark.org</a></td>
+            </tr>
+            <tr>
+              <td>Penetration Testing OS</td>
+              <td>Kali Linux</td>
+              <td><a href="https://www.kali.org" target="_blank" rel="noopener">kali.org</a></td>
             </tr>
           </tbody>
         </table>
-      </section>
+      </div>
+    </section>
 
-      <!-- Future Vision Card -->
-      <section class="card full-width">
-        <h2>Where Do I See Myself in 4 Years?</h2>
-        <p class="future-paragraph">
-          In four years, I envision myself working as a professional Game Developer, creating immersive gaming experiences using engines like Unity and advanced programming languages. My main goal is to design innovative game mechanics, stunning environments, and engaging gameplay.
+    <!-- Future goals (5 sentences) -->
+    <section class="card">
+      <h2>Where Do I See Myself in 4 Years?</h2>
+      <div class="bubble">
+        <p>
+          In four years, I see myself working as a professional game developer who builds immersive games with engines like Unity.
+          I also want to specialize in game security, protecting players from cheating, account theft, and data breaches.
+          To do that, I plan to build penetration testing skills so I can find weaknesses in my own games before attackers do.
+          I am also interested in learning cloud security, because modern multiplayer games depend on online servers.
+          In the long term, I would like to pursue postgraduate studies in cybersecurity to deepen my knowledge.
         </p>
-      </section>
+      </div>
+    </section>
 
-    </main>
-
-    <!-- Footer -->
     <footer>
       <p>&copy; 2026 Rinad - Department of Computer Game Design and Development - JUST</p>
     </footer>
 
   </div>
 
+  <script>
+    // Click the LVL 3 badge to make it spin
+    var badge = document.getElementById("badge");
+    badge.addEventListener("click", function () {
+      badge.classList.remove("spin");
+      void badge.offsetWidth;          // restarts the animation
+      badge.classList.add("spin");
+    });
+  </script>
 </body>
 </html>
